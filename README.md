@@ -4,7 +4,7 @@ An advanced AI-powered DeFi trading bot that leverages transformer models, multi
 
 ---
 
-**This project is an enhanced fork of the original onchain-ai-trading-agent, with a focus on DeFi automation, multi-chain support, and user-centric features.**
+
 
 ## Modern Architecture
 
