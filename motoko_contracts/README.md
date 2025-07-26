@@ -1,6 +1,15 @@
-# `motoko_contracts`
+# DeFi AI Trading Agent - Frontend
 
-Welcome to your new `motoko_contracts` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+Welcome to the DeFi AI Trading Agent frontend, built on the Internet Computer blockchain. This project provides a modern, responsive web interface for advanced AI-powered DeFi trading with multi-chain support, yield farming strategies, and ICP integration.
+
+## Features
+
+- **DeFi AI Predictions**: Advanced transformer models for DeFi protocol performance prediction
+- **Multi-Chain Support**: Integration with Ethereum, Polygon, BSC, and other EVM chains
+- **Yield Farming**: AI-driven yield farming strategies with impermanent loss protection
+- **Internet Identity**: Secure authentication using Internet Computer's identity system
+- **Real-time Dashboard**: Live portfolio tracking and performance metrics
+- **On-chain Transparency**: All operations verifiable on the Internet Computer blockchain
 
 To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
 

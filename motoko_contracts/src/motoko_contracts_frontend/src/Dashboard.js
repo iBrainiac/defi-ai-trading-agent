@@ -261,7 +261,7 @@ class Dashboard {
       <main class="dashboard-container">
         <nav class="landing-nav dashboard-nav">
           <div class="logo">
-            <h1>IC<span class="accent">INDEX</span></h1>
+            <h1>DeFi<span class="accent">AI</span></h1>
           </div>
           <div class="nav-links">
             <a href="#predictions">Predictions</a>
@@ -275,8 +275,8 @@ class Dashboard {
         
         <section id="predictions" class="predictions-section">
           <div class="section-header">
-            <div class="section-tag">AI Analysis</div>
-            <h2>Price <span class="gradient-text">Predictions</span></h2>
+            <div class="section-tag">DeFi AI Analysis</div>
+            <h2>DeFi <span class="gradient-text">Predictions</span></h2>
           </div>
           <div class="predictions-grid">
             <div class="prediction-card">
@@ -286,9 +286,9 @@ class Dashboard {
                   <path d="M7 14.5L10 11.5L13 14.5L17 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h3>BTC Prediction</h3>
+              <h3>DeFi Protocol Prediction</h3>
               <p class="price">${btcPrediction !== null && btcPrediction !== undefined ? btcPrediction.toFixed(6) : 'Loading...'}</p>
-              <p class="card-description">AI-powered price prediction for Bitcoin</p>
+              <p class="card-description">AI-powered DeFi protocol performance prediction</p>
             </div>
             <div class="prediction-card">
               <div class="feature-icon ai-icon">
@@ -297,9 +297,9 @@ class Dashboard {
                   <path d="M7 14.5L10 11.5L13 14.5L17 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h3>ETH Prediction</h3>
+              <h3>Yield Farming Prediction</h3>
               <p class="price">${ethPrediction !== null && ethPrediction !== undefined ? ethPrediction.toFixed(6) : 'Loading...'}</p>
-              <p class="card-description">AI-powered price prediction for Ethereum</p>
+              <p class="card-description">AI-powered yield farming opportunity prediction</p>
             </div>
           </div>
         </section>
