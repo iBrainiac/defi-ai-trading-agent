@@ -5,21 +5,21 @@
   --primary-color: #1a1a2e;
   --primary-dark: #16213e;
   --primary-light: #0f3460;
-  --secondary-color: #e94560;
-  --accent-color: #533483;
+  --secondary-color: #3b82f6;
+  --accent-color: #06b6d4;
   --bg-color: #ffffff;
-  --bg-alt-color: #f8f9fa;
-  --text-color: #1a1a2e;
-  --text-light: #6b7280;
-  --border-color: #e5e7eb;
-  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  --gradient-primary: linear-gradient(135deg, #1a1a2e 0%, #533483 100%);
-  --gradient-secondary: linear-gradient(135deg, #e94560 0%, #533483 100%);
-  --gradient-accent: linear-gradient(135deg, #533483 0%, #e94560 100%);
-  --radius-sm: 4px;
+  --bg-alt-color: #f8fafc;
+  --text-color: #1e293b;
+  --text-light: #64748b;
+  --border-color: #e2e8f0;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --transition: all 0.3s ease;
+  --transition: all 0.2s ease;
 }
 
 /* Base Styles */
@@ -28,6 +28,7 @@
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
+  background: var(--bg-color);
 }
 
 /* Typography */
@@ -54,8 +55,9 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 5%;
-  background-color: var(--bg-color);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -65,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--primary-color);
 }
 
 .nav-links {
@@ -83,19 +85,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .login-btn {
-  background-color: transparent;
-  border: 1.5px solid var(--primary-color);
-  color: var(--primary-color);
-  padding: 0.5rem 1.5rem;
+  background: var(--secondary-color);
+  border: 1.5px solid var(--secondary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius-md);
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   font-size: 0.95rem;
+}
+
+.login-btn:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .login-btn:hover {
@@ -128,9 +137,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 6rem 5% 5rem;
-  position: relative;
-  overflow: hidden;
-  background-color: var(--bg-color);
+  background: var(--bg-color);
 }
 
 .hero-content {
@@ -141,13 +148,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .badge {
   display: inline-block;
-  background-color: rgba(99, 102, 241, 0.1);
-  color: var(--primary-color);
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--secondary-color);
   padding: 0.5rem 1rem;
   border-radius: 100px;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .hero-content h1 {
@@ -180,19 +188,55 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cta-btn.primary {
-  background: var(--gradient-primary);
-  color: white;
+  background: var(--gradient-secondary);
+  color: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-neon);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.cta-btn.primary:hover::before {
+  left: 0;
 }
 
 .cta-btn.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
 }
 
 .cta-btn.secondary {
-  background-color: transparent;
-  border: 1.5px solid var(--border-color);
-  color: var(--text-color);
+  background: transparent;
+  border: 1.5px solid var(--secondary-color);
+  color: var(--secondary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn.secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-secondary);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.cta-btn.secondary:hover::before {
+  left: 0;
 }
 
 .cta-btn.secondary:hover {
@@ -222,30 +266,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-light);
 }
 
-.hero-image {
-  max-width: 45%;
-  position: relative;
-  z-index: 1;
-}
 
-.blob-bg {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-  filter: blur(80px);
-  z-index: -1;
-  right: -100px;
-  top: -100px;
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 2;
-}
 
 /* Section Styles */
 .section-header {
@@ -290,18 +311,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-card {
-  background-color: var(--bg-alt-color);
+  background: rgba(26, 26, 46, 0.8);
   padding: 2.5rem 2rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--card-shadow);
   transition: var(--transition);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
-  border-color: var(--primary-light);
+  box-shadow: 0 20px 30px rgba(0, 212, 255, 0.2);
+  border-color: var(--secondary-color);
 }
 
 .feature-icon {
@@ -321,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ai-icon {
-  background: var(--gradient-primary);
+  background: var(--gradient-cosmic);
 }
 
 .blockchain-icon {
@@ -329,11 +369,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .risk-icon {
-  background: linear-gradient(135deg, #f97316 0%, #f43f5e 100%);
+  background: var(--gradient-accent);
 }
 
 .security-icon {
-  background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+  background: var(--gradient-neon);
 }
 
 .feature-card h3 {
@@ -441,9 +481,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 .landing-footer {
-  background-color: var(--bg-alt-color);
+  background: rgba(26, 26, 46, 0.9);
   color: var(--text-color);
   padding: 0;
+  backdrop-filter: blur(10px);
 }
 
 .footer-top {
@@ -451,7 +492,7 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 4rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
 }
 
 .footer-brand h2 {
@@ -490,7 +531,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-links-column a:hover {
-  color: var(--primary-color);
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
 .footer-bottom {
@@ -517,17 +559,19 @@ h1, h2, h3, h4, h5, h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--bg-color);
+  background: rgba(26, 26, 46, 0.8);
   color: var(--text-light);
   transition: var(--transition);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .social-links a:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background: var(--gradient-secondary);
+  color: var(--bg-color);
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 8px 15px rgba(0, 212, 255, 0.3);
+  border-color: var(--secondary-color);
 }
 
 .social-links svg {
@@ -574,9 +618,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
   }
   
-  .hero-image {
-    max-width: 80%;
-  }
+
   
   .nav-links {
     display: none;

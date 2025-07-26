@@ -95,10 +95,7 @@ class LandingPage {
               </div>
             </div>
           </div>
-          <div class="hero-image">
-            <div class="blob-bg"></div>
-            <img src="hero-image.svg" alt="Trading visualization" />
-          </div>
+
         </section>
 
         <section id="features" class="features">
