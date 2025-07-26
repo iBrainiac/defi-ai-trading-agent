@@ -1,0 +1,74 @@
+// main.did - Candid interface for the DeFi AI Trading Agent canister
+
+type Portfolio = record {
+    btc : float64;
+    eth : float64;
+    ckbtc : float64;
+    cketh : float64;
+    lastRebalanceTime : int;
+    totalValue : float64;
+    performance : float64;
+    btcAddress : opt text;
+    ethAddress : opt text;
+};
+
+type BitcoinNetwork = variant {
+    mainnet;
+    testnet;
+    regtest;
+};
+
+type Metrics = record {
+    sharpeRatio : float64;
+    volatility : float64;
+    var95 : float64;
+    maxDrawdown : float64;
+    updated : bool;
+    monteCarloSimulated : bool;
+};
+
+type MonteCarloResult = record {
+    simulatedSharpeRatio : float64;
+    simulatedVolatility : float64;
+    simulatedVar95 : float64;
+    simulatedMaxDrawdown : float64;
+};
+
+type Predictions = record {
+    btc : float64;
+    eth : float64;
+};
+
+type OptimalWeights = record {
+    btcWeight : float64;
+    ethWeight : float64;
+};
+
+service : {
+    // Portfolio management
+    "getPortfolio" : () -> (Portfolio) query;
+    "update_ckbtc_balance" : (float64) -> ();
+    
+    // Bitcoin integration
+    "get_ecdsa_public_key" : () -> (blob);
+    "get_p2pkh_address" : (BitcoinNetwork) -> (text);
+    "get_bitcoin_address" : () -> (opt text) query;
+    "get_bitcoin_balance" : (BitcoinNetwork, nat32) -> (nat64);
+    
+    // AI predictions and metrics
+    "getPredictions" : () -> (Predictions) query;
+    "setPredictions" : (float64, float64) -> ();
+    "getMetrics" : () -> (Metrics) query;
+    "updateMetrics" : (float64, float64, float64, float64) -> ();
+    "updateMetricsWithRandomness" : (float64, float64, float64, float64) -> ();
+    
+    // Monte Carlo simulation
+    "runMonteCarloSimulation" : (nat) -> (MonteCarloResult);
+    "getRandomness" : () -> (blob);
+    
+    // Portfolio optimization
+    "calculateOptimalWeightsWithRandomness" : () -> (OptimalWeights);
+    "getRebalanceResult" : () -> (text) query;
+    "rebalance" : () -> (text);
+    "rebalanceWithRandomness" : () -> (text);
+}; 
